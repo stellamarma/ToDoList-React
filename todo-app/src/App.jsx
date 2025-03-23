@@ -5,12 +5,16 @@ import TodoList from "./components/TodoList";
 
 
 function App() {
+  const todos=[
+    {input:'Wash dishes',complete:true},
+    {input:'Go for walk',complete:false}
+  ]
 
   return (
    <>
-    <Header />
-    <Tabs />
-    <TodoList />
+    <Header todos={todos}/>
+    <Tabs todos={todos}/>
+    <TodoList todos={todos}/>
     <TodoInput />
    </>
   )
