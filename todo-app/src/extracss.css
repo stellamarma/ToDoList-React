@@ -102,7 +102,7 @@
 }
 
 body {
-    background-color: #808080; /* Γκρι φόντο */
+    background-color: #b15151a2; /* Γκρι φόντο */
     color: white; /* Άσπρα γράμματα */
     font-size: 0.875rem;
     line-height: 1.6rem;
@@ -368,36 +368,45 @@ input[type="radio"] {
     cursor: pointer;
 }
 
+/* Default style for buttons */
 button {
-    color: var(--color-primary);
-    background-color: var(--background-primary);
-    width: fit-content;
+    color: white; /* Άσπρο χρώμα για το κείμενο */
+    background-color: #7f3f3ffb; /* Γκρι φόντο */
+    border: 1.5px solid #874a4a; /* Γκρι περίγραμμα */
+    padding: 0.25rem 1.25rem;
+    border-radius: var(--border-radius-small);
+    box-shadow: 2px 2px 0 0 #6a3131;
     font-family: inherit;
     font-size: inherit;
     font-weight: 500;
-    padding: 0.25rem 1.25rem;
-    border: 1.5px solid var(--border-secondary);
-    border-radius: var(--border-radius-small);
-    box-shadow: 2px 2px 0 0 var(--border-secondary);
-    transition-duration: 200ms;
+    cursor: pointer;
+    transition: all 0.2s ease; /* Ομαλή μετάβαση */
 }
 
-button:hover {
-    box-shadow: 0 0 0 0 var(--border-secondary);
-    transform: translate(2px, 2px);
+/* Hover and Active states for buttons */
+button:hover,
+button:focus {
+    background-color: #481111; /* Σκοτεινότερο γκρι χρώμα όταν το κουμπί είναι σε hover ή focus */
+    border-color: #542424fc; /* Σκοτεινότερο περίγραμμα όταν το κουμπί είναι σε hover ή focus */
+    box-shadow: 0 0 0 0 #442020; /* Χωρίς σκιά όταν είναι σε hover ή focus */
 }
 
-button[disabled]:hover {
-    box-shadow: 2px 2px 0 0 var(--border-secondary);
-    transform: translate(0, 0);
+/* Active state */
+button:active {
+    background-color: #444444; /* Πολύ σκούρο γκρι όταν το κουμπί είναι πατημένο */
+    border-color: #4444441d; /* Πολύ σκούρο γκρι περίγραμμα όταν το κουμπί είναι πατημένο */
+    box-shadow: none; /* Αφαίρεση σκιάς όταν είναι πατημένο */
 }
 
+/* Disabled state for buttons */
 button:disabled,
 button[disabled] {
-    border: 1.5px solid var(--border-secondary);
-    cursor: initial;
-    opacity: 0.55;
+    background-color: #b0b0b0; /* Γκρι χρώμα για disabled κουμπιά */
+    border-color: #b0b0b0; /* Γκρι περίγραμμα για disabled κουμπιά */
+    opacity: 0.6; /* Διαφάνεια όταν είναι disabled */
+    cursor: not-allowed; /* Απαγόρευση του cursor */
 }
+
 
 label {
     display: block;

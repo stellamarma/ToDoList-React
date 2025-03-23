@@ -2,10 +2,10 @@ function Tabs(){
     const tabs=['All','Open','Completed']
 
     return(
-        <nav>
+        <nav className="tab-container">
             {tabs.map((tab,tabIndex)=>{
                 return(
-                    <button key={tabIndex}>
+                    <button key={tabIndex} className="tab-button">
                         <h4>{tab}</h4>
                     </button>
                 )
