@@ -7,12 +7,12 @@ import TodoList from "./components/TodoList";
 function App() {
 
   return (
-   <div>
+   <>
     <Header />
     <Tabs />
     <TodoList />
     <TodoInput />
-  </div>
+   </>
   )
 }
 
