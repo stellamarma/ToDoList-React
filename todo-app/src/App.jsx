@@ -32,7 +32,11 @@ function App() {
     })
     setTodo(newTodoList)
   }
-  useEffect(()=>{},[])
+  useEffect(()=>{
+    if(!localStorage || !localStorage.getItem('todo-app')){return}
+    let db=JSON.parse(localStorage.getItem('todo-app'))
+    setTodo(db.todos)
+  },[])
   return (
    <>
     <Header todos={todos}/>
