@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Header from "./components/Header";
 import Tabs from "./components/Tabs";
 import TodoInput from "./components/TodoInput";
@@ -32,6 +32,7 @@ function App() {
     })
     setTodo(newTodoList)
   }
+  useEffect(()=>{},[])
   return (
    <>
     <Header todos={todos}/>
