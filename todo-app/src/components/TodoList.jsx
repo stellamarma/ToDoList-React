@@ -1,11 +1,11 @@
 import TodoCart from "./TodoCart";
 
 function TodoList(props){
-    const {todos}=props
-    const tab='All'
-    const filterTodoList= tab==='All'?
+    const {todos,selectedTab}=props
+    
+    const filterTodoList= selectedTab==='All'?
     todos : 
-    tab==='Completed'?
+    selectedTab==='Completed'?
         todos.filter(val=>val.complete):
         todos.filter(val=>!val.complete)
 
@@ -15,6 +15,8 @@ function TodoList(props){
                 return(
                     <TodoCart 
                     key={todoIndex} 
+                    todoIndex={todoIndex}
+                    {...props}
                     todo={todo}/>
                 )
             })}

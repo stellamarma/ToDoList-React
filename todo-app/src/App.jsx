@@ -12,21 +12,33 @@ function App() {
   // ]
   const [todos,setTodo]=useState([])
 
+  const [selectedTab,setSelectedTab]=useState('Open')
+
   function hadleAddTodo(newTodo){
     const newTodoList = [...todos,{input:newTodo,complete:false}]
     setTodo(newTodoList)
   }
-  function hadleEditTodo(){
-    
-  }
-  function hadleDeleteTodo(){
-    
+  function handleCompleteTodo(index) {
+    let newTodoList = [...todos]
+    let completedTodo = todos[index]
+    completedTodo['complete'] = true
+    newTodoList[index] = completedTodo
+    setTodo(newTodoList)
+}
+
+  function handleDeleteTodo(index){
+    let newTodoList=todos.filter((val,valIndex)=>{
+      return valIndex !==index
+    })
+    setTodo(newTodoList)
   }
   return (
    <>
     <Header todos={todos}/>
-    <Tabs todos={todos}/>
-    <TodoList todos={todos}/>
+    <Tabs selectedTab={selectedTab} 
+    setSelectedTab={setSelectedTab} 
+    todos={todos}/>
+    <TodoList handleCompleteTodo={handleCompleteTodo} handleDeleteTodo={handleDeleteTodo} selectedTab={selectedTab} todos={todos}/>
     <TodoInput hadleAddTodo={hadleAddTodo}/>
    </>
   )
