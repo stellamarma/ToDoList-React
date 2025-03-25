@@ -15,7 +15,7 @@ function TodoList(props){
                 return(
                     <TodoCart 
                     key={todoIndex} 
-                    todoIndex={todoIndex}
+                    todoIndex={todos.findIndex(val=>val.input==todo.input)}
                     {...props}
                     todo={todo}/>
                 )
