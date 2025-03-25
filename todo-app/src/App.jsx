@@ -17,6 +17,7 @@ function App() {
   function hadleAddTodo(newTodo){
     const newTodoList = [...todos,{input:newTodo,complete:false}]
     setTodo(newTodoList)
+    handleSaveDate(newTodoList)
   }
   function handleCompleteTodo(index) {
     let newTodoList = [...todos]
@@ -24,6 +25,7 @@ function App() {
     completedTodo['complete'] = true
     newTodoList[index] = completedTodo
     setTodo(newTodoList)
+    handleSaveDate(newTodoList)
 }
 
   function handleDeleteTodo(index){
@@ -31,6 +33,9 @@ function App() {
       return valIndex !==index
     })
     setTodo(newTodoList)
+  }
+  function handleSaveDate(currTodos){
+    localStorage.setItem('todo-app',JSON.stringify({todos:currTodos}))
   }
   useEffect(()=>{
     if(!localStorage || !localStorage.getItem('todo-app')){return}
